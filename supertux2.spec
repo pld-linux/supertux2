@@ -1,4 +1,4 @@
-# $Revision: 1.1 $, $Date: 2011/03/07 09:25:05 $
+
 %define 	gitdate	20121104
 Summary:	Enhanced version of SuperTux Game
 Summary(pl.UTF-8):	Rozbudowana wersja gry SuperTux
@@ -68,13 +68,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_docdir}/supertux2/*
 %{_datadir}/games/supertux2
 %{_pixmapsdir}/*
-
-%define date	%(echo `LC_ALL="C" date +"%a %b %d %Y"`)
-%changelog
-* %{date} PLD Team <feedback@pld-linux.org>
-All persons listed below can be reached at <cvs_login>@pld-linux.org
-
-$Log:supertux2.spec,v $
-Revision 1.1  2011/03/07 09:25:05  mguevara
-supertux 0.3.3 aka supertux2 initial release
 
