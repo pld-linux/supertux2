@@ -14,7 +14,6 @@ Group:		X11/Applications/Games
 Source0:	http://files.guevara.pl/%{name}-git-20121104.tar.bz2
 # Source0-md5:	17164616082a1f766d2fa1278ebe1b65
 Source1:	%{name}.sh
-# Source1-md5:	3eb2c5eebde638baded293419592e7c0
 URL:		http://supertux.lethargik.org/
 BuildRequires:	OpenAL-devel
 BuildRequires:	OpenGL-devel
