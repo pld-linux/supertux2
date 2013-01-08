@@ -1,5 +1,5 @@
 
-%define 	gitdate	20121104
+%define 	gitdate	20130107
 Summary:	Enhanced version of SuperTux Game
 Summary(pl.UTF-8):	Rozbudowana wersja gry SuperTux
 Name:		supertux2
@@ -7,12 +7,12 @@ Version:	0.3.3
 Release:	%{gitdate}.1
 License:	GPL
 Group:		X11/Applications/Games
-# Source0: supertux2-git-2012-11-04.tar.bz2 created @2012-11-04
+# Source0: supertux2-git-20130107.tar.bz2 created @20130107
 # git clone https://code.google.com/p/supertux/
 # cd supertux
-# git archive --format=tar HEAD | bzip2 -9 > supertux2-git-20121104.tar.bz2
-Source0:	http://files.guevara.pl/%{name}-git-20121104.tar.bz2
-# Source0-md5:	17164616082a1f766d2fa1278ebe1b65
+# git archive --format=tar HEAD | bzip2 -9 > supertux2-git-20130107.tar.bz2
+Source0:	http://files.guevara.pl/%{name}-git-20130107.tar.bz2
+# Source0-md5:	925f8e6d9eb6793d1a68e1563f8e7bd2
 Source1:	%{name}.sh
 URL:		http://supertux.lethargik.org/
 BuildRequires:	OpenAL-devel
@@ -53,6 +53,8 @@ cd build
 
 install -d $RPM_BUILD_ROOT%{_bindir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_bindir}/%{name}
+# supertux.xpm is provided by supertux pkg
+mv $RPM_BUILD_ROOT%{_pixmapsdir}/supertux.xpm $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.xpm
 
 %clean
 rm -rf $RPM_BUILD_ROOT
