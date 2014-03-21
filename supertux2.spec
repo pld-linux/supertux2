@@ -3,16 +3,12 @@
 Summary:	Enhanced version of SuperTux Game
 Summary(pl.UTF-8):	Rozbudowana wersja gry SuperTux
 Name:		supertux2
-Version:	0.3.3
-Release:	%{gitdate}.1
+Version:	0.3.4
+Release:	1
 License:	GPL
 Group:		X11/Applications/Games
-# Source0: supertux2-git-20130107.tar.bz2 created @20130107
-# git clone https://code.google.com/p/supertux/
-# cd supertux
-# git archive --format=tar HEAD | bzip2 -9 > supertux2-git-20130107.tar.bz2
-Source0:	http://files.guevara.pl/%{name}-git-20130107.tar.bz2
-# Source0-md5:	925f8e6d9eb6793d1a68e1563f8e7bd2
+Source0:	http://supertux.googlecode.com/files/supertux-%{version}.tar.bz2
+# Source0-md5:	108af4c1fd985e8842a15cd819b9b157
 Source1:	%{name}.sh
 URL:		http://supertux.lethargik.org/
 BuildRequires:	OpenAL-devel
@@ -23,6 +19,7 @@ BuildRequires:	boost-devel
 BuildRequires:	cmake
 BuildRequires:	glew-devel
 BuildRequires:	physfs-devel
+Requires:	libpng15
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define	_noautoreqdep	libGL.so.1 libGLU.so.1
@@ -39,15 +36,14 @@ głównej.
 %setup -q -cn %{name}-%{version}
 
 %build
-mkdir -p build
-cd build
-cmake .. -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX='%{_prefix}'
+cd supertux-%{version}
+cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX='%{_prefix}'
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-cd build
+cd supertux-%{version}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -61,7 +57,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README WHATSNEW.txt
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_prefix}/games/supertux2
 %dir %{_docdir}/supertux2
